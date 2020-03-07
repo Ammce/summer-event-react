@@ -2,12 +2,19 @@ import queryString from 'query-string';
 
 import axios from '../../../config/axios/axios';
 
-import { LOAD_DATA, SET_LOADING } from './types';
+import { LOAD_DATA, SET_LOADING, SET_SELECTED_CONNECTION } from './types';
 
 const setLoading = value => {
   return {
     type: SET_LOADING,
     payload: value,
+  };
+};
+
+export const setSelectedConnection = connection => {
+  return {
+    type: SET_SELECTED_CONNECTION,
+    payload: connection,
   };
 };
 

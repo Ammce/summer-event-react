@@ -1,38 +1,15 @@
 body {
-  background: url('/logo.jpg') no-repeat center center fixed;
+  background: linear-gradient(
+        to right,
+        rgba(15, 12, 41, 0.99),
+        rgba(48, 43, 99, 0.99),
+        rgba(36, 36, 62, 0.85)
+      )
+      no-repeat center center fixed,
+    url('/logo.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-html,
-body,
-#root,
-#root > div {
-  height: 100%;
-}
-
-.row {
-  max-width: 95%;
-}
-
-.App {
-  height: inherit;
-  background-image: -webkit-linear-gradient(
-    to right,
-    rgba(15, 12, 41, 0.95),
-    rgba(48, 43, 99, 0.95),
-    rgba(36, 36, 62, 0.95)
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background-image: linear-gradient(
-    to right,
-    rgba(15, 12, 41, 0.99),
-    rgba(48, 43, 99, 0.99),
-    rgba(36, 36, 62, 0.85)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.card:hover {
-  box-shadow: 0 0 11px rgba(236, 224, 53, 0.404);
+  color: white;
 }

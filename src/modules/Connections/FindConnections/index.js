@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import Input from '../../../commonComponents/Input/';
@@ -38,64 +38,64 @@ class index extends Component {
   render() {
     const { data } = this.state;
     const { connections } = this.props;
-    console.log(connections);
     let displayLoader = null;
     if (connections.isLoading) {
       displayLoader = <Loader />;
     }
     return (
-      <div>
+      <Container>
         <Row>
-          <Col>
-            <Row className='mt-4 ml-3'>
-              <Col sm={12} md={6}>
-                <Input
-                  value={data.from}
-                  type='text'
-                  name='from'
-                  id='from'
-                  onChange={this.handleChangeData}
-                  label={'What is your location? '}
-                />
-              </Col>
-            </Row>
-            <Row className='mt-4 ml-3'>
-              <Col sm={12} md={6}>
-                <Input
-                  value={data.to}
-                  type='text'
-                  name='to'
-                  id='to'
-                  onChange={this.handleChangeData}
-                  label={'Where are you traveling? '}
-                />
-              </Col>
-            </Row>
-            <Row className='mt-4 ml-3'>
-              <Col sm={12} md={6}>
-                <Input
-                  value={data.limit}
-                  type='number'
-                  name='limit'
-                  id='limit'
-                  onChange={this.handleChangeData}
-                  label={'Number of connections? '}
-                />
-              </Col>
-            </Row>
-            <Row className='mt-4 ml-3'>
-              <Col sm={12} md={6}>
-                <div>
-                  <Button onClick={this.submitData} variant='warning' size='lg'>
-                    Submit
-                  </Button>
-                </div>
-              </Col>
-            </Row>
+          <Col sm={12} md={6}>
+            <Input
+              value={data.from}
+              type='text'
+              name='from'
+              id='from'
+              onChange={this.handleChangeData}
+              label={'What is your location? '}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={6}>
+            <Input
+              value={data.to}
+              type='text'
+              name='to'
+              id='to'
+              onChange={this.handleChangeData}
+              label={'Where are you traveling? '}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={6}>
+            <Input
+              value={data.limit}
+              type='number'
+              name='limit'
+              id='limit'
+              onChange={this.handleChangeData}
+              label={'Number of connections? '}
+            />
+          </Col>
+        </Row>
+        <Row className='mt-4'>
+          <Col sm={12} md={6}>
+            <div>
+              <Button
+                className='text-white'
+                onClick={this.submitData}
+                variant='outline-warning'
+                size='lg'
+              >
+                Submit
+              </Button>
+            </div>
           </Col>
         </Row>
         {displayLoader}
-      </div>
+      </Container>
     );
   }
 }
