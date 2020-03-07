@@ -21,5 +21,12 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'space-before-function-paren': 0,
     'import/prefer-default-export': 0,
+    'object-curly-newline': 0,
+    'arrow-body-style': 0,
+    'arrow-parens': 0,
+    'react/jsx-one-expression-per-line': 0,
+    'operator-linebreak': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-noninteractive-element-interactions': 0,
   },
 };

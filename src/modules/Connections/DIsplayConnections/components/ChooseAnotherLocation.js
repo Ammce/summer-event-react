@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ChooseAnotherLocation = props => {
   return (
@@ -10,3 +11,15 @@ const ChooseAnotherLocation = props => {
 };
 
 export default withRouter(ChooseAnotherLocation);
+
+ChooseAnotherLocation.propTypes = {
+  history: PropTypes.PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.func,
+    ]),
+  ).isRequired,
+};

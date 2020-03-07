@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import FormatDate, { formatDuration } from '../../../../helpers/dateFormatters';
 
@@ -13,9 +14,7 @@ const ConnectionCard = ({
 }) => {
   return (
     <Card
-      onClick={() => {
-        console.log('Kliknuo si me');
-      }}
+      onClick={onClick}
       border='warning'
       text='white'
       className='mt-3'
@@ -35,3 +34,19 @@ const ConnectionCard = ({
 };
 
 export default ConnectionCard;
+
+ConnectionCard.propTypes = {
+  header: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  arrival: PropTypes.string.isRequired,
+  departure: PropTypes.string.isRequired,
+  sections: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};

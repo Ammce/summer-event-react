@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
