@@ -16,8 +16,8 @@ const Input = ({ name, className, id, value, onChange, label, type }) => {
         required
         autoComplete='off'
       />
-      <label htmlFor='nme'>
-        <span>{label}</span>
+      <label htmlFor={name}>
+        <span style={{ zIndex: '33' }}>{label}</span>
       </label>
     </>
   );
