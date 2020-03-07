@@ -18,6 +18,8 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'jsx-quotes': 0,
-    'react/jsx-filename-extension ': 0,
+    'react/jsx-filename-extension': 0,
+    'space-before-function-paren': 0,
+    'import/prefer-default-export': 0,
   },
 };

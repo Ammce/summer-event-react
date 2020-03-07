@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import queryString from 'query-string';
+import { connect } from 'react-redux';
 
 import Input from '../../../commonComponents/Input/';
+import Loader from '../../../commonComponents/Loader';
+
+import { loadData } from '../_redux/actions';
 
 class index extends Component {
   state = {
-    isLoading: false,
     data: {
-      limit: '',
-      from: '',
-      to: '',
+      limit: '5',
+      from: 'Zermatt',
+      to: 'Zurich',
     },
   };
 
@@ -29,12 +31,18 @@ class index extends Component {
 
   submitData = async () => {
     const { data } = this.state;
-    console.log(data);
+    const { loadData, history } = this.props;
+    await loadData(data, history);
   };
 
   render() {
     const { data } = this.state;
-    console.log(data);
+    const { connections } = this.props;
+    console.log(connections);
+    let displayLoader = null;
+    if (connections.isLoading) {
+      displayLoader = <Loader />;
+    }
     return (
       <div>
         <Row>
@@ -86,9 +94,14 @@ class index extends Component {
             </Row>
           </Col>
         </Row>
+        {displayLoader}
       </div>
     );
   }
 }
 
-export default index;
+const mapStateToProps = state => ({
+  connections: state.connections,
+});
+
+export default connect(mapStateToProps, { loadData })(index);
