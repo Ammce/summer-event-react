@@ -49,7 +49,7 @@ class index extends Component {
     return (
       <Container>
         <Row>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <Input
               isRequired
               value={data.from}
@@ -62,7 +62,7 @@ class index extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <Input
               isRequired
               value={data.to}
@@ -75,7 +75,7 @@ class index extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <Input
               value={data.date}
               type='date'
@@ -87,7 +87,7 @@ class index extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <Input
               value={data.time}
               type='time'
@@ -99,7 +99,7 @@ class index extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <Input
               value={data.limit}
               type='number'
@@ -111,7 +111,7 @@ class index extends Component {
           </Col>
         </Row>
         <Row className='mt-4'>
-          <Col sm={12} md={6}>
+          <Col sm={12} md={{ span: 6, offset: 3 }}>
             <div>
               <Button
                 className='text-white'
