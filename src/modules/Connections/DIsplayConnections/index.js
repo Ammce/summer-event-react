@@ -28,7 +28,7 @@ export default function() {
       </Row>
       <Row>
         <Col xs={12} md={12}>
-          <Row>
+          <Row className='justify-content-center'>
             <Col xs={6} className='text-center'>
               {connections.data.from && connections.data.to && (
                 <h3 className='text-warning'>

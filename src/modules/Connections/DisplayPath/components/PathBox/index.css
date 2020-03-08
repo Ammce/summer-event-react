@@ -4,8 +4,17 @@
   position: relative;
 }
 
-h1 {
+h3 {
   text-align: center;
+}
+
+.undertimeline {
+  text-align: center;
+  font-size: 80%;
+}
+
+.undertimeline > span {
+  display: inline;
 }
 
 .timeline:before {
