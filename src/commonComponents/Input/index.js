@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 
 import './index.css';
 
-const Input = ({ name, className, id, value, onChange, label, type }) => {
+const Input = ({
+  name,
+  className,
+  id,
+  value,
+  onChange,
+  label,
+  type,
+  isRequired,
+}) => {
   return (
     <>
       <input
@@ -17,7 +26,9 @@ const Input = ({ name, className, id, value, onChange, label, type }) => {
         autoComplete='off'
       />
       <label htmlFor={name}>
-        <span style={{ zIndex: '33' }}>{label}</span>
+        <span style={{ zIndex: '33' }}>
+          {label} {isRequired && <i className='text-warning'>*</i>}
+        </span>
       </label>
     </>
   );
@@ -33,8 +44,10 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
 };
 
 Input.defaultProps = {
   className: '',
+  isRequired: false,
 };

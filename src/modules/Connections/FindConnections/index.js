@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Button, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 import Input from '../../../commonComponents/Input';
 import Loader from '../../../commonComponents/Loader';
@@ -14,6 +15,8 @@ class index extends Component {
       limit: '5',
       from: 'Zermatt',
       to: 'Stallikon',
+      date: moment().format('YYYY-MM-DD'),
+      time: '17:15',
     },
   };
 
@@ -48,6 +51,7 @@ class index extends Component {
         <Row>
           <Col sm={12} md={6}>
             <Input
+              isRequired
               value={data.from}
               type='text'
               name='from'
@@ -60,12 +64,37 @@ class index extends Component {
         <Row>
           <Col sm={12} md={6}>
             <Input
+              isRequired
               value={data.to}
               type='text'
               name='to'
               id='to'
               onChange={this.handleChangeData}
               label='Where are you traveling? '
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={6}>
+            <Input
+              value={data.date}
+              type='date'
+              name='date'
+              id='date'
+              onChange={this.handleChangeData}
+              label='Date'
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12} md={6}>
+            <Input
+              value={data.time}
+              type='time'
+              name='time'
+              id='time'
+              onChange={this.handleChangeData}
+              label='Time'
             />
           </Col>
         </Row>
