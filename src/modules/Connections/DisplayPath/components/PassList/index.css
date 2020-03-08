@@ -1,0 +1,14 @@
+.customP {
+  cursor: pointer;
+  display: inline;
+  transition: box-shadow 0.3s;
+  color: rgba(209, 178, 38, 0.664) !important;
+}
+
+.customP:hover {
+  box-shadow: 0 0 11px rgba(165, 155, 64, 0.384);
+}
+
+hr {
+  border-top: 1px solid rgba(209, 178, 38, 0.664) !important;
+}

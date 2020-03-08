@@ -12,7 +12,7 @@ class index extends Component {
     data: {
       limit: '5',
       from: 'Zermatt',
-      to: 'Zurich',
+      to: 'Stallikon',
     },
   };
 

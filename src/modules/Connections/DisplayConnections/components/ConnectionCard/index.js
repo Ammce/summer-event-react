@@ -24,14 +24,14 @@ const ConnectionCard = ({
             <div className='box'>
               <i className='fa fa-train fa-3x' aria-hidden='true' />
               <div className='box-title'>
-                <h3>{formatDuration(header)} hours</h3>
+                <h3>Duration: {formatDuration(header)}</h3>
               </div>
               <div className='box-text'>
                 <span>Transfers: {title}</span>
                 <span>Sections: {sections}</span>
                 <span className='tripData'>
-                  {new FormatDate(arrival).formatFullDate()} -{' '}
-                  {new FormatDate(departure).formatFullDate()}
+                  {new FormatDate(departure).formatFullDate()} -{' '}
+                  {new FormatDate(arrival).formatFullDate()}
                 </span>
               </div>
               <div className='box-btn'>
