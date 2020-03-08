@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
 import ConnectionCard from './components/ConnectionCard';
-import ChooseAnotherLocation from './components/ChooseAnotherLocation';
+import Navlink from '../../../commonComponents/Navlink';
 
 import { setSelectedConnection } from '../_redux/actions';
 
@@ -22,18 +22,19 @@ export default function() {
   return (
     <Container fluid>
       <Row>
+        <Col>
+          <Navlink to='/' text='Select Another Locations' />
+        </Col>
+      </Row>
+      <Row>
         <Col xs={12} md={12}>
           <Row>
-            <Col xs={6}>
-              <h4>Choose your path</h4>
+            <Col xs={6} className='text-center'>
               {connections.data.from && connections.data.to && (
                 <h3 className='text-warning'>
                   {connections.data.from} - {connections.data.to}
                 </h3>
               )}
-            </Col>
-            <Col xs={6} className='text-right'>
-              <ChooseAnotherLocation />
             </Col>
           </Row>
         </Col>

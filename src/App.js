@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
@@ -10,10 +10,7 @@ import { FindConnections, DisplayConnections, DisplayPath } from './modules';
 
 function App() {
   return (
-    <div className='App'>
-      <NavLink to='/'>Home</NavLink>
-      <NavLink to='/choose-route'>Choose Route</NavLink>
-      <NavLink to='/choose-route/path'>Haa</NavLink>
+    <div className='App mt-3'>
       <Switch>
         <PrivateRoute exact path='/choose-route/path' component={DisplayPath} />
         <PrivateRoute path='/choose-route' component={DisplayConnections} />

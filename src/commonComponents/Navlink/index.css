@@ -1,0 +1,9 @@
+.btn-white {
+  color: white;
+  transition: box-shadow 0.3s;
+}
+
+.btn-white:hover {
+  color: white;
+  box-shadow: 0 0 11px rgba(209, 159, 22, 0.644);
+}
