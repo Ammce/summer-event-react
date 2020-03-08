@@ -20,15 +20,19 @@ export const setSelectedConnection = connection => {
 
 export const loadData = (data, history) => async dispatch => {
   dispatch(setLoading(true));
-  const response = await axios.get(
-    `/connections?${queryString.stringify(data)}`,
-  );
-  if (response.status === 200) {
+  try {
+    const response = await axios.get(
+      `/connections?${queryString.stringify(data)}`,
+    );
+    if (response.status === 200) {
+      dispatch(setLoading(false));
+      dispatch({
+        type: LOAD_DATA,
+        payload: response.data,
+      });
+      history.push('/choose-route');
+    }
+  } catch (error) {
     dispatch(setLoading(false));
-    dispatch({
-      type: LOAD_DATA,
-      payload: response.data,
-    });
-    history.push('/choose-route');
   }
 };
