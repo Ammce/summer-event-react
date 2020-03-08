@@ -35,7 +35,7 @@ const ConnectionCard = ({
                 </span>
               </div>
               <div className='box-btn'>
-                <p>Learn More</p>
+                <p>See Trip Details</p>
               </div>
             </div>
           </Col>

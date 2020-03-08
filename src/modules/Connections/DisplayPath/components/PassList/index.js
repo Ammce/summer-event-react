@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Collapse } from 'react-bootstrap';
+import { Collapse } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 import FormatDate from '../../../../../helpers/dateFormatters';
 
 import './index.css';
 
-export default function({ data }) {
+function PathList({ data }) {
   const [open, setOpen] = useState(false);
-  console.log('DOSTA JE', data);
   return (
     <>
       <p
@@ -40,3 +40,17 @@ export default function({ data }) {
     </>
   );
 }
+
+export default PathList;
+
+PathList.propTypes = {
+  data: PropTypes.PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.bool,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};

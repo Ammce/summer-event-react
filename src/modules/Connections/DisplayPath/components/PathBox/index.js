@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PassList from '../PassList';
 
@@ -6,9 +7,7 @@ import FormatDate from '../../../../../helpers/dateFormatters';
 
 import './index.css';
 
-const index = ({ data, sectionIndex, lastIndex }) => {
-  console.log('DATAA', data, sectionIndex);
-
+const index = ({ data, sectionIndex }) => {
   let duration = '';
   if (data.journey) {
     duration = new FormatDate(
@@ -21,8 +20,6 @@ const index = ({ data, sectionIndex, lastIndex }) => {
 
   let passList = null;
   if (data && data.journey && data.journey.passList) {
-    console.log('UDJI OVDEEEEE');
-    console.log(data.journey.passList);
     passList = <PassList data={data.journey.passList} />;
   }
 
@@ -57,16 +54,14 @@ const index = ({ data, sectionIndex, lastIndex }) => {
           </p>
           <p>
             <small className='text-muted'>
-              <i className='fa fa-clock-o text-warning' /> Arrival:{' '}
-              {new FormatDate(data.departure.arrival).formatFullDate()}
+              <i className='fa fa-clock-o text-warning' /> Departure:{' '}
+              {new FormatDate(data.departure.departure).formatFullDate()}
             </small>
           </p>
           <p>
             <small className='text-muted'>
-              <i className='fa fa-clock-o text-warning' /> Departure:{' '}
-              {sectionIndex === lastIndex
-                ? ''
-                : new FormatDate(data.departure.departure).formatFullDate()}
+              <i className='fa fa-clock-o text-warning' /> Arrival:{' '}
+              {new FormatDate(data.arrival.arrival).formatFullDate()}
             </small>
           </p>
           {passList}
@@ -80,3 +75,16 @@ const index = ({ data, sectionIndex, lastIndex }) => {
 };
 
 export default index;
+
+index.propTypes = {
+  data: PropTypes.PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.func,
+    ]),
+  ).isRequired,
+  sectionIndex: PropTypes.number.isRequired,
+};

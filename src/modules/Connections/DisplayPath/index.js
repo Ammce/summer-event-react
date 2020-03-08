@@ -8,7 +8,7 @@ export default function() {
   const connections = useSelector(state => state.connections);
 
   return (
-    <Container fluid>
+    <Container>
       <Row className='mt-4 pl-3'>
         <Col xs={12} md={12}>
           <div className='page-header'>
@@ -22,9 +22,6 @@ export default function() {
                     key={section.arrival.station}
                     data={section}
                     sectionIndex={index}
-                    lastIndex={
-                      connections.selectedConnection.sections.length - 1
-                    }
                   />
                 );
               })}

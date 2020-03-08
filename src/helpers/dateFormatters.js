@@ -5,7 +5,6 @@ export const formatDuration = duration => {
   const hoursAmountFromDays = 24 * +newDuration[0];
   const hours = moment.duration(newDuration[1]).asHours();
   const result = +hours + +hoursAmountFromDays;
-  const momentResult = moment.duration(result).asHours();
   return moment
     .utc(moment.duration(result, 'hours').asMilliseconds())
     .format('HH:mm');
@@ -16,6 +15,7 @@ export default class FormatDate {
     this.date1 = date1;
     this.date2 = date2;
   }
+
   formatFullDate = () => {
     if (!this.date1) {
       return null;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import Input from '../../../commonComponents/Input/';
+import Input from '../../../commonComponents/Input';
 import Loader from '../../../commonComponents/Loader';
 
 import { loadData } from '../_redux/actions';
@@ -31,8 +32,8 @@ class index extends Component {
 
   submitData = async () => {
     const { data } = this.state;
-    const { loadData, history } = this.props;
-    await loadData(data, history);
+    const { loadData: loadDataHandler, history } = this.props;
+    await loadDataHandler(data, history);
   };
 
   render() {
@@ -52,7 +53,7 @@ class index extends Component {
               name='from'
               id='from'
               onChange={this.handleChangeData}
-              label={'What is your location? '}
+              label='What is your location? '
             />
           </Col>
         </Row>
@@ -64,7 +65,7 @@ class index extends Component {
               name='to'
               id='to'
               onChange={this.handleChangeData}
-              label={'Where are you traveling? '}
+              label='Where are you traveling? '
             />
           </Col>
         </Row>
@@ -76,7 +77,7 @@ class index extends Component {
               name='limit'
               id='limit'
               onChange={this.handleChangeData}
-              label={'Number of connections? '}
+              label='Number of connections? '
             />
           </Col>
         </Row>
@@ -105,3 +106,25 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { loadData })(index);
+
+index.propTypes = {
+  history: PropTypes.PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.func,
+    ]),
+  ).isRequired,
+  connections: PropTypes.PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.func,
+    ]),
+  ).isRequired,
+  loadData: PropTypes.func.isRequired,
+};
